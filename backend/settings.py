@@ -25,8 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-gl%!k^wzs1*sj2&ar2f%sn%7uh!makv!!s%r&q-4-d+(hw491y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # Deve estar True para desenvolvimento
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+DEBUG = False  # Deve estar True para desenvolvimento
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '195.200.1.112', 'licitacao360.com']
+
 
 # Application definition
 
