@@ -11,22 +11,26 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Diretório base do projeto
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+import environ
+import os
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+# Inicializar o django-environ
+env = environ.Env(
+    DEBUG=(bool, False)  # DEBUG será tratado como um booleano
+)
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gl%!k^wzs1*sj2&ar2f%sn%7uh!makv!!s%r&q-4-d+(hw491y'
+# Ler o arquivo .env
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # Deve estar True para desenvolvimento
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '195.200.1.112', 'licitacao360.com']
+# Variáveis de Ambiente
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
 # Application definition
