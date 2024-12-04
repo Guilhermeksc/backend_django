@@ -1,0 +1,3 @@
+cp -r ../frontend/dist/frontend/browser/* ./static/ 
+
+python manage.py makemigrations      
