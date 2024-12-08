@@ -17,8 +17,14 @@ SECRET_KEY = 'django-insecure-le-fmd9xx5e@o0s3c5x)6a2!8v7o5cj!qsrjzkr$g%stt5#6do
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'licitacao360.com', 'www.licitacao360.com']
-
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    'licitacao360.com', 
+    'www.licitacao360.com', 
+    'ayabioarquitetura.com', 
+    'www.ayabioarquitetura.com'
+]
 
 
 # Application definition
@@ -30,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',  # Adicionando Django REST Framework
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -41,6 +48,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
 ]
 
 REST_FRAMEWORK = {
